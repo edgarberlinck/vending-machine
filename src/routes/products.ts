@@ -1,9 +1,12 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response } from 'express'
 // TODO: import controller
-const router = express.Router();
+import { authenticate, AuthenticatedRequest } from '../middlewares/auth'
+const router = express.Router()
 
-router.get("/products", (req: Request, res: Response) => {
-  res.status(200).json({});
-});
+router
+  .route('/products')
+  .get(authenticate, (req: AuthenticatedRequest, res: Response) => {
+    res.status(200).json(req.user)
+  })
 
-export = router;
+export = router
