@@ -8,14 +8,5 @@
     "target": "es2016",
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@types/*": ["types/*"],
-      "@enums/*": ["enums/*"],
-      "@controllers/*": ["controllers/*"],
-      "@routes/*": ["routes/*"],
-      "@middlewares/*": ["middlewares/*"],
-      "@remote/*": ["remote/*"]
-    }
   },
 }

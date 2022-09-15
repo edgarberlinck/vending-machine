@@ -1,8 +1,8 @@
-import 'module-alias/register'
 import http from 'http'
 import express, { Express } from 'express'
 import morgan from 'morgan'
-import products from '@routes/products'
+import products from './routes/products'
+import authentication from './routes/authentication'
 import { config } from 'dotenv'
 
 config()
@@ -27,6 +27,7 @@ router.use((req, res, next) => {
 })
 
 router.use(products)
+router.use(authentication)
 
 router.use((req, res, next) => {
   const error = new Error('not found')

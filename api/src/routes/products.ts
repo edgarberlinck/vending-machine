@@ -1,7 +1,7 @@
-import express, { Request, Response } from 'express'
+import express, { Response } from 'express'
 // TODO: import controller
-import { authorize, AuthenticatedRequest } from '@middlewares/auth'
-import { Role } from '@enums/Role'
+import { authorize, AuthenticatedRequest } from '../middlewares/auth'
+import { Role } from '../enums/Role'
 const router = express.Router()
 
 router
