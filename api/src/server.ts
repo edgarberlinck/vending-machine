@@ -1,7 +1,8 @@
+import 'module-alias/register'
 import http from 'http'
 import express, { Express } from 'express'
 import morgan from 'morgan'
-import products from './routes/products'
+import products from '@routes/products'
 import { config } from 'dotenv'
 
 config()
