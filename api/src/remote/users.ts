@@ -18,3 +18,36 @@ export const create = async (user: Partial<User>): Promise<void> => {
     throw Error('Registration error')
   }
 }
+
+export const login = async (
+  username: string,
+  password: string
+): Promise<User> => {
+  try {
+    const response = await client.get(
+      `/users?filter[username][_eq]=${username}`
+    )
+
+    if (
+      !response.data ||
+      !response.data.data ||
+      response.data.data.length === 0
+    ) {
+      throw new Error('invalid username/password')
+    }
+
+    const user: User = response.data.data[0]
+    const match: boolean = await bcrypt.compare(
+      password,
+      user.password as string
+    )
+
+    if (match) {
+      return user
+    } else {
+      throw new Error('invalid username/password')
+    }
+  } catch (e) {
+    throw new Error('invalid username/password')
+  }
+}
