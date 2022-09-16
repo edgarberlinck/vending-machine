@@ -1,6 +1,8 @@
 import express, { Response } from 'express'
 import { RequestBody, UserRegistrationBody } from '../routes/types'
 import { register, signin } from '../controllers/user'
+import { AuthenticatedRequest, authorize } from '../middlewares/auth'
+import { Role } from '../enums/Role'
 
 const router = express.Router()
 
@@ -30,4 +32,14 @@ router
       }
     }
   )
+
+router
+  .route('/me')
+  .post(
+    authorize([Role.BUYER, Role.SELLER]),
+    (req: AuthenticatedRequest, res: Response) => {
+      res.status(200).json(req.user)
+    }
+  )
+
 export = router
