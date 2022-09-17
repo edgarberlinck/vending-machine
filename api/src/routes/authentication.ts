@@ -1,6 +1,6 @@
 import express, { Response } from 'express'
 import { RequestBody, UserRegistrationBody } from '../routes/types'
-import { register, signin } from '../controllers/user'
+import { register, signin } from '../controllers/user.controller'
 import { AuthenticatedRequest, authorize } from '../middlewares/auth'
 import { Role } from '../enums/Role'
 

@@ -1,7 +1,7 @@
 import { UserRegistrationBody } from '../routes/types'
 import { Authentication } from '../types'
 import jwt from 'jsonwebtoken'
-import { create, login } from '../remote/users'
+import { create, login } from '../remote/users.remote'
 
 const config: NodeJS.ProcessEnv = process.env
 
@@ -14,8 +14,14 @@ export const register = async (
     role: user.role,
   })
 
+  const createdUser = await login(user.username, user.password)
+
   const token = jwt.sign(
-    { username: user.username, role: user.role },
+    {
+      username: createdUser.username,
+      role: createdUser.role,
+      id: createdUser.id,
+    },
     config.TOKEN_KEY as string,
     { expiresIn: '8h' }
   )
@@ -30,7 +36,7 @@ export const signin = async (
   const user = await login(username, password)
 
   const token = jwt.sign(
-    { username: user.username, role: user.role },
+    { username: user.username, role: user.role, id: user.id },
     config.TOKEN_KEY as string,
     { expiresIn: '8h' }
   )

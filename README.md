@@ -2,9 +2,9 @@
  
   - [x] Create Authorization middleware
   - [x] Create user Crud (roles can be `seller` or `buyer`)
-  - [ ] Create change password
+  - [ ] Create change password (Later. I'll try to use a free mail service)
   - [x] Create Authentication
-  - [ ] Create product Crud
+  - [X] Create product Crud
   - [ ] Create deposit route
   - [ ] Implement buy route
   - [ ] Implement reset

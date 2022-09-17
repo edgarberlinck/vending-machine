@@ -9,8 +9,9 @@ export interface User extends JwtPayload {
   name: string
 }
 
-export interface AuthenticatedRequest extends Request {
-  user?: User | string
+export interface AuthenticatedRequest<T = {}> extends Request {
+  user?: User
+  body: T
 }
 
 export const authorize =
