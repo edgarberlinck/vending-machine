@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import products from './routes/products'
 import authentication from './routes/authentication'
 import wallet from './routes/wallet'
+import buy from './routes/buy'
 import { config } from 'dotenv'
 
 config()
@@ -30,6 +31,7 @@ router.use((req, res, next) => {
 router.use(products)
 router.use(authentication)
 router.use(wallet)
+router.use(buy)
 
 router.use((req, res, next) => {
   const error = new Error('not found')

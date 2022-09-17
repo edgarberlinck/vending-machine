@@ -28,3 +28,19 @@ export const addBalanceTo = async (amount: number, owner: number) => {
 
   return response.data.data
 }
+
+export const useAmountFromWallet = async (
+  amount: number,
+  walletId: string
+): Promise<void> => {
+  try {
+    const wallet = await client.get(`/wallet/${walletId}`)
+    await client.patch(`/wallet/${walletId}`, {
+      amount: wallet.data.data.amount - amount,
+    })
+  } catch {
+    throw new Error(
+      'You dont have a wallet yet. Make sure to make a deposit before buy.'
+    )
+  }
+}
