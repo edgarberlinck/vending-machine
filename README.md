@@ -5,7 +5,7 @@
   - [ ] Create change password (Later. I'll try to use a free mail service)
   - [x] Create Authentication
   - [X] Create product Crud
-  - [ ] Create deposit route
+  - [X] Create deposit route
   - [ ] Implement buy route
   - [ ] Implement reset
   - [ ] Create web interface

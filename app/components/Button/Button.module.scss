@@ -1,0 +1,23 @@
+@import '~/styles/theme.scss';
+
+.button {
+  padding: 8px 1.5rem;
+  background-color: transparent;
+  border: 1.5px solid $grey-1;
+  border-radius: 50px;
+  font-size: 16px;
+
+  &:hover {
+    animation: pop .5s, heat .4s;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(.9);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
