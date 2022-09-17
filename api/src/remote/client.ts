@@ -11,4 +11,4 @@ instance.defaults.headers.common['Authorization'] = `Bearer ${
   process.env.DIRECTUS_USER_TOKEN as string
 }`
 
-export = instance
+export default instance

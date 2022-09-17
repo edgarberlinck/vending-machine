@@ -42,4 +42,4 @@ router
     }
   )
 
-export = router
+export default router

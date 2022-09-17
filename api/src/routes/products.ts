@@ -1,5 +1,4 @@
 import express, { Response } from 'express'
-// TODO: import controller
 import { AuthenticatedRequest, authorize } from '../middlewares/auth'
 import { Role } from '../enums/Role'
 import { Product } from '../types/product'
@@ -114,4 +113,4 @@ router
     }
   )
 
-export = router
+export default router
