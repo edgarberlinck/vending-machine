@@ -1,11 +1,11 @@
 @import '~/styles/theme.scss';
 
 .navigation_bar {
-  border-bottom: 1px solid $grey-1;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: lighten($color: $background-color, $amount: 10);
 
   & > div {
     display: flex;
