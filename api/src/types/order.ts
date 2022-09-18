@@ -9,5 +9,5 @@ export type Order = {
   id?: string
   products: OrderProduct[]
   total?: number
-  buyer: number
+  buyer?: number
 }

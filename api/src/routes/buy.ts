@@ -11,17 +11,14 @@ router
   .route('/order/place')
   .post(
     authorize([Role.BUYER]),
-    async (
-      req: AuthenticatedRequest<Order>,
-      res: Response<Order | ErrorMessage>
-    ) => {
+    async (req: AuthenticatedRequest<Order>, res: Response) => {
       try {
         const { user, body } = req
         if (!user) throw new Error('Session expired')
         if (!body) throw new Error('Your cart is empty')
 
-        const order = await placeOrder(body, user.id)
-        res.status(200).json(order)
+        await placeOrder(body, user.id)
+        res.status(200).send()
       } catch (e) {
         res.status(500).json({ message: (e as Error).message })
       }

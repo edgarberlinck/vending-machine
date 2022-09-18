@@ -4,7 +4,7 @@ import client from './client'
 export const userWallet = async (userId: number): Promise<Wallet | null> => {
   const response = await client.get(`/wallet?filter[owner][_eq]=${userId}`)
   const wallet = response.data.data
-  console.log(`/wallet?filter[owner][_eq]=${userId}`)
+
   if (wallet.length === 0) return null
 
   return wallet[0]
@@ -34,10 +34,13 @@ export const useAmountFromWallet = async (
   walletId: string
 ): Promise<void> => {
   try {
+    console.log(`Using ${amount} from wallet id ${walletId} `)
     const wallet = await client.get(`/wallet/${walletId}`)
+
     await client.patch(`/wallet/${walletId}`, {
       amount: wallet.data.data.amount - amount,
     })
+    console.log('Balance Updated')
   } catch {
     throw new Error(
       'You dont have a wallet yet. Make sure to make a deposit before buy.'
