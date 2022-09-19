@@ -1,0 +1,32 @@
+@import '~/styles/theme.scss';
+
+.wrapper {
+  padding: 1rem;
+}
+
+.productList {
+  display: flex;
+  gap: 2rem
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  background-color: lighten($color: $background-color, $amount: 10);;
+
+  & > img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  & > label {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  & > small {
+    font-weight: 100;
+  }
+}
