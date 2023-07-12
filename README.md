@@ -6,6 +6,6 @@
   - [x] Create Authentication
   - [X] Create product Crud
   - [X] Create deposit route
-  - [ ] Implement buy route
-  - [ ] Implement reset
-  - [ ] Create web interface
+  - [x] Implement buy route
+  - [ ] Implement reset (I forget, sorry for that...)
+  - [X] Create web interface (Not 100%)
